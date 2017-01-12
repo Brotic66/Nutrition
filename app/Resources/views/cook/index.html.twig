@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cooks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cook in cooks %}
+            <tr>
+                <td><a href="{{ path('cook_show', { 'id': cook.id }) }}">{{ cook.id }}</a></td>
+                <td>{{ cook.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cook_show', { 'id': cook.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cook_edit', { 'id': cook.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cook_new') }}">Create a new cook</a>
+        </li>
+    </ul>
+{% endblock %}
