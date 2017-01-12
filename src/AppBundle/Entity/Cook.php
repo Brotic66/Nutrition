@@ -32,8 +32,17 @@ class Cook
      * @var Category
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", cascade={"remove"})
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
+
+    /**
+     * @var Plan
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Plan", cascade={"remove"})
+     * @ORM\JoinColumn(name="plan_id", referencedColumnName="id")
+     */
+    private $plan;
 
     /**
      * @return Category
@@ -87,6 +96,24 @@ class Cook
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return Plan
+     */
+    public function getPlan()
+    {
+        return $this->plan;
+    }
+
+    /**
+     * @param Plan $plan
+     * @return Cook
+     */
+    public function setPlan($plan)
+    {
+        $this->plan = $plan;
+        return $this;
     }
 }
 

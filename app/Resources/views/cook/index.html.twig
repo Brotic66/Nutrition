@@ -3,11 +3,15 @@
 {% block body %}
     <h1>Cooks list</h1>
 
+    <a href="{{ path('cook_new') }}">Create a new cook</a>
+
     <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Category</th>
+                <th>Plan</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,6 +20,8 @@
             <tr>
                 <td><a href="{{ path('cook_show', { 'id': cook.id }) }}">{{ cook.id }}</a></td>
                 <td>{{ cook.name }}</td>
+                <td>{{ cook.category.name }}</td>
+                <td>{{ cook.plan.name }}</td>
                 <td>
                     <ul>
                         <li>
@@ -30,10 +36,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('cook_new') }}">Create a new cook</a>
-        </li>
-    </ul>
 {% endblock %}

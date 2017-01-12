@@ -1,0 +1,19 @@
+{
+  "name": "Nutrition",
+  "homepage": "https://github.com/Brotic66/Nutrition",
+  "description": "Nutrition application",
+  "main": "",
+  "authors": [
+    "Brice VICO"
+  ],
+  "license": "NO",
+  "ignore": [
+    "**/.*",
+    "web/bowerComponents",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
