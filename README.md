@@ -1,4 +1,1 @@
-.checkout
-=========
-
-A Symfony project created on January 12, 2017, 1:52 pm.
+A project to determine links between two Freeletics nutrition account.
