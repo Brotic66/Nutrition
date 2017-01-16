@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Week</h1>
+    {% for week in weeks %}
+        <h3>
+            {{ week.user.username }} :
+        </h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Repas</th>
+                {% for day in week.days %}
+                    <th>{{ day.day }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Petit-déjeuné</th>
+                {% for day in week.days %}
+                    <td>
+                        {% for cook in day.breakfast %}
+                            <p>
+                                {{ cook.name }}
+                            </p>
+                        {% else %}
+                            ...
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Déjeuné</th>
+                {% for day in week.days %}
+                    <td>
+                        {% for cook in day.lunch %}
+                            <p>
+                                {{ cook.name }}
+                            </p>
+                        {% else %}
+                            ...
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Snack</th>
+                {% for day in week.days %}
+                    <td>
+                        {% for cook in day.snack %}
+                            <p>
+                                {{ cook.name }}
+                            </p>
+                        {% else %}
+                            ...
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Diner</th>
+                {% for day in week.days %}
+                    <td>
+                        {% for cook in day.dinner %}
+                            <p>
+                                {{ cook.name }}
+                            </p>
+                        {% else %}
+                            ...
+                        {% endfor %}
+                    </td>
+                {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+
+    <ul>
+        <li>
+            <a href="{{ path('week_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

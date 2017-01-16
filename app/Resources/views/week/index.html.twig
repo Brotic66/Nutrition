@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Weeks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for week in weeks %}
+            <tr>
+                <td><a href="{{ path('week_show', { 'id': week.id }) }}">{{ week.id }}</a></td>
+                <td>{{ week.number }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('week_show', { 'id': week.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('week_edit', { 'id': week.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('week_new') }}">Create a new week</a>
+        </li>
+    </ul>
+{% endblock %}

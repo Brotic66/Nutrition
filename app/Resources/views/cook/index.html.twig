@@ -20,7 +20,11 @@
             <tr>
                 <td><a href="{{ path('cook_show', { 'id': cook.id }) }}">{{ cook.id }}</a></td>
                 <td>{{ cook.name }}</td>
-                <td>{{ cook.category.name }}</td>
+                <td>
+                    {% for category in cook.category %}
+                        {{ category.name }}
+                    {% endfor %}
+                </td>
                 <td>{{ cook.plan.name }}</td>
                 <td>
                     <ul>

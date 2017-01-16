@@ -5,13 +5,37 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Class      Category
+ * @package   AppBundle\Entity
+ * @category  AppBundle
+ * @author    Brice VICO <brice.vico@orange.fr>
+ * @copyright 2017
  *
  * @ORM\Table(name="category")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
  */
 class Category
 {
+    /**
+     * @var string Breakfast BDD translation.
+     */
+    const BREAKFAST = 'Petit-déjeuné';
+
+    /**
+     * @var string Lunch BDD translation.
+     */
+    const LUNCH = 'Déjeuné';
+
+    /**
+     * @var string Snack BDD translation.
+     */
+    const SNACK = 'En-cas';
+
+    /**
+     * @var string Dinner BDD translation.
+     */
+    const DINNER = 'Diner';
+
     /**
      * @var int
      *

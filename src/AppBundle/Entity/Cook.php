@@ -2,10 +2,15 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Cook
+ * Class      Cook
+ * @package   AppBundle\Entity
+ * @category  AppBundle
+ * @author    Brice VICO <brice.vico@orange.fr>
+ * @copyright 2017
  *
  * @ORM\Table(name="cook")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CookRepository")
@@ -31,8 +36,11 @@ class Cook
     /**
      * @var Category
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", cascade={"remove"})
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category")
+     * @ORM\JoinTable(name="cook_category",
+     *      joinColumns={@ORM\JoinColumn(name="cook_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="category_id", referencedColumnName="id")}
+     *      )
      */
     private $category;
 
@@ -43,6 +51,14 @@ class Cook
      * @ORM\JoinColumn(name="plan_id", referencedColumnName="id")
      */
     private $plan;
+
+    /**
+     * Cook constructor.
+     */
+    public function __construct()
+    {
+        $this->category = new ArrayCollection();
+    }
 
     /**
      * @return Category

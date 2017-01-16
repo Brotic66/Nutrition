@@ -22,6 +22,7 @@ class CookType extends AbstractType
             ->add('category', EntityType::class, array(
                     'class' => Category::class,
                     'choice_label' => 'name',
+                    'multiple' => true,
                 )
             )
             ->add('plan', EntityType::class, array(

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Week creation</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.user) }}
+    {{ form_row(form.number) }}
+
+    <ul class="nav nav-tabs" role="tablist">
+        {% for day in form.days %}
+            <li role="presentation" {% if loop.first %}class="active"{% endif %}>
+                <a href="#day-{{ loop.index }}" aria-controls="day-{{ loop.index }}" role="tab" data-toggle="tab">{{ loop.index }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        {% for day in form.days %}
+            <div role="tabpanel" class="tab-pane fade{% if loop.first %} in active{% endif %}" id="day-{{ loop.index }}">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {{ form_row(day) }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('week_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

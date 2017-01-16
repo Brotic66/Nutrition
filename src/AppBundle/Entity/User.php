@@ -5,16 +5,16 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class      Plan
+ * Class      User
  * @package   AppBundle\Entity
  * @category  AppBundle
  * @author    Brice VICO <brice.vico@orange.fr>
  * @copyright 2017
  *
- * @ORM\Table(name="plan")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PlanRepository")
+ * @ORM\Table(name="user")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class Plan
+class User
 {
     /**
      * @var int
@@ -28,9 +28,10 @@ class Plan
     /**
      * @var string
      *
-     * @ORM\Column(name="Name", type="string", length=255)
+     * @ORM\Column(name="username", type="string", length=255, unique=true)
      */
-    private $name;
+    private $username;
+
 
     /**
      * Get id
@@ -43,27 +44,27 @@ class Plan
     }
 
     /**
-     * Set name
+     * Set username
      *
-     * @param string $name
+     * @param string $username
      *
-     * @return Plan
+     * @return User
      */
-    public function setName($name)
+    public function setUsername($username)
     {
-        $this->name = $name;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get username
      *
      * @return string
      */
-    public function getName()
+    public function getUsername()
     {
-        return $this->name;
+        return $this->username;
     }
 }
 
